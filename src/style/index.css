@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Hiragino Sans GB";
+  src: url("../assert/font/SourceHanSerifSC-Heavy.otf");
+}
+
+.hello {
+  font-size: 14px;
+  color: #006eda;
+  font-family: Hiragino Sans GB;
+}
+
+.cat {
+  display: flex;
+  width: 10em;
+  height: 10em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  background-image: url(../assert//images//cat.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
