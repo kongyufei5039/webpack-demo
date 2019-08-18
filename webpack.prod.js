@@ -8,6 +8,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin")
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
+const smp = new SpeedMeasurePlugin()
 
 const setMPA = () => {
   const entry = {}
@@ -46,7 +50,7 @@ const setMPA = () => {
 
 const { entry, htmlWebpackPlugins } = setMPA()
 
-module.exports = {
+module.exports = smp.wrap({
   entry,
   output: {
     path: path.join(__dirname, 'dist'),
@@ -136,7 +140,8 @@ module.exports = {
     //       global: 'ReactDOM',
     //     },
     //   ]
-    // })
+    // }),
+    // new BundleAnalyzerPlugin()
   ].concat(htmlWebpackPlugins),
   optimization: {
     splitChunks: {
@@ -159,4 +164,4 @@ module.exports = {
     contentBase: './dest',
     hot: true
   }
-}
+})
