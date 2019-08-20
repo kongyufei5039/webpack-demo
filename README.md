@@ -259,3 +259,64 @@ module.exports = {
 - WDS 不刷新浏览器
 - WDS 不输出文件，而是放在内存中
 - 使用HotModuleReplacementPlugin插件
+
+## 热更新：使用webpack-dev-middleware
+- WDM 将 webpack 输出的文件传输给服务器
+- 适用于灵活的定制场景
+
+## 热更新的原理分析
+- Webpack Compile：将JS编译成Bundle
+- HMR Server：将热更新的文件输出给 HMR Runtime
+- Bundle server：提供文件在浏览器的访问
+- HMR Runtime：会被注入到浏览器，更新文件的变化
+- bundle.js：构建输出的文件
+
+## 文件指纹
+- Hash：和整个项目的构建相关，只要相关文件有修改，整个项目构建的hash值就会更改
+- Chunkhash：和webpack打包的chunk有关，不同的entry会生成不同的chunkhash值
+- Contenthash：根据文件内容来定义hash，文件内容不变，则contenthash不变
+
+## JS的文件指纹设置
+- 设置output的filename，使用[chunkhash]
+
+## CSS的文件指纹设置
+- 设置MiniCssExtractPlugin的filename，使用[contenthash]
+
+## 图片的文件指纹设置
+- 设置file-loader的name，使用[hash]
+
+## JS文件的压缩
+- 内置了uglifyjs-webpack-plugin
+
+## CSS文件压缩
+- 使用 optimize-css-assets-webpack-plugin
+- 同时使用cssnano
+```
+plugins: [
+  new OptimizeCSSAssetsPlugin({
+    assetNameRegExp: /\.css$/g,
+    cssProcessor: require('cssnano')
+  })
+]
+```
+
+## html文件压缩
+- 修改html-webpack-plugin，设置压缩参数
+```
+plugins: [
+  new HtmlWebpackPlugin({
+    template: path.join(__dirname, 'src/index.html'),
+    filename: 'index.html',
+    chunks: ['index'],
+    inject: true,
+    minify: {
+      html5: true,
+      collapseWhitespace: true,
+      preserveLineBreaks: false,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: false
+    }
+  })
+]
+```
