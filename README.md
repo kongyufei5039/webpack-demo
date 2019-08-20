@@ -119,3 +119,116 @@ module.exports = {
 development | 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 development。启用 NamedChunksPlugin 和 NamedModulesPlugin。
 production | 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 production。启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin 和 TerserPlugin。
 none | 退出任何默认优化选项
+
+## 资源解析：解析ES6
+- 使用babel-loader
+- babel的配置文件是：.babelrc
+```
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      use: 'babel-loader'
+    }
+  ]
+}
+```
+- 增加ES6的babel parset配置
+```
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      "plugins": ["@babel/plugin-transform-classes"]
+    ]
+  ]
+}
+```
+## 解析CSS
+- css-loader用于加载.css文件，并且转换成common.js对象
+- style-loader将样式通过<style>标签插入到head中
+```
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }
+  ]
+}
+```
+
+## 解析less和sass
+- sass-loader用于将sass装换成css
+```
+module: {
+  rules: [{
+    test: /\.scss$/,
+    use: [
+        "style-loader", // 将 JS 字符串生成为 style 节点
+        "css-loader", // 将 CSS 转化成 CommonJS 模块
+        "sass-loader" // 将 Sass 编译成 CSS，默认使用 Node Sass
+    ]
+  }]
+}
+```
+
+## 解析图片
+- file-loader用于处理文件
+```
+module: {
+  rules: [{
+    test: /.(png|jpg|gif|jpeg)$/,
+    use: [
+        {
+            loader: 'file-loader',
+            options: {
+                name: '[name]_[hash:8].[ext]'
+            }
+        }
+    ]
+  }]
+}
+```
+
+## 解析字体
+- file-loader也可以用于处理字体
+```
+module: {
+  rules: [{
+    test: /.(woff|woff2|eot|ttf|otf)$/,
+    use: [
+        {
+            loader: 'file-loader',
+            options: {
+                name: '[name]_[hash:8][ext]'
+            }
+        }
+    ]
+  }]
+}
+```
+
+## 使用url-loader
+- url-loader也可以处理图片和字体
+- 可以设置较小资源自动base64
+```
+module: {
+  rules: [
+    {
+      test: /\.(png|jpg|gif)$/i,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 10240
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+## webpack中监听文件
+
