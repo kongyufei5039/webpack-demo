@@ -120,7 +120,7 @@ development | 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 devel
 production | 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 production。启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin 和 TerserPlugin。
 none | 退出任何默认优化选项
 
-## 资源解析：解析ES6
+## 解析ES6
 - 使用babel-loader
 - babel的配置文件是：.babelrc
 ```
