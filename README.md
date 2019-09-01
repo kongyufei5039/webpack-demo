@@ -320,3 +320,105 @@ plugins: [
   })
 ]
 ```
+
+## webpack优化
+**1) 使用 DLLPlugin 进行分包**
+- webpack.dll.js
+```
+new webpack.DllPlugin({
+  name: '[name]_[hash]',
+  path: path.join(__dirname, 'build/library/[name].json')
+})
+```
+- webpack.prod.js
+```
+new webpack.DllReferencePlugin({
+  manifest: require('./build/library/library.json')
+})
+```
+**2) 缓存**
+- babel-loader 开启缓存
+- terser-webpack-plugin 开启缓存
+- 使用 cache-loader 或者 hard-source-webpack-plugin
+
+**3）缩小构建目标**
+- 比如 babel-loader 不解析 node_modules
+```
+rules: [
+  {
+    test: /\.m?js$/,
+    exclude: /(node_modules|bower_components)/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  }
+]
+```
+**4) 减少文件搜索范围**
+- 优化 resolve.modules 配置(减少模块搜索层级)
+- 优化 resolve.mainFields 配置
+- 优化 resolve.extensions 配置
+- 合理使用 alias
+```
+resolve: {
+  alias: {
+    'react': path.resolve(__dirname, './node_modules/react/umd/react.production.min.js'),
+    'react-dom': path.resolve(__dirname, './node_modules/react-dom/umd/react-dom.production.min.js'),
+  },
+  extensions: ['.js'],
+  mainFields: ['main']
+}
+```
+**5) 图片压缩**
+- image-webpack-loader
+```
+{
+  loader: 'image-webpack-loader',
+  options: {
+    mozjpeg: {
+      progressive: true,
+      quality: 65
+    },
+    // optipng.enabled: false will disable optipng
+    optipng: {
+      enabled: false,
+    },
+    pngquant: {
+      quality: '65-90',
+      speed: 4
+    },
+    gifsicle: {
+      interlaced: false,
+    },
+    // the webp option will enable WEBP
+    webp: {
+      quality: 75
+    }
+  }
+}
+```
+
+**6) tree shaking**
+- webpack 默认支持，在 .babelrc 里设置 modules: false 即可 · production mode的情况下默认开启，必须是 ES6 的语法，CJS 的方式不支持。
+- 删除无用的 CSS，使用 purgecss-webpack-plugin和 mini-css-extract-plugin 配合使用。
+```
+new MiniCssExtractPlugin({
+  filename: '[name]_[contenthash:8].css'
+}),
+new PurgecssPlugin({
+  paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+})
+````
+
+**7）动态 Polyfill**
+- Polyfill Service可以识别 User Agent，下发不同的 Polyfill
+- polyfill.io 官方提供的服务
+```
+<script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script>
+```
+
+## webpack构建流程
+![](https://github.com/kongyufei5039/webpack-demo/blob/master/src/image/webpack%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B.png?raw=true)
