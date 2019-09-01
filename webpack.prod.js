@@ -126,7 +126,10 @@ module.exports = smp.wrap({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano')
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.DllReferencePlugin({
+        manifest: require('./build/library/library.json')
+    })
     // new HtmlWebpackExternalsPlugin({
     //   externals: [
     //     {
