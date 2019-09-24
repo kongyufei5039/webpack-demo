@@ -74,6 +74,12 @@ module.exports = {
       filename: 'search.html',
       chunks: ['search']
     }),
+    new HtmlWebpackPlugin({
+      title: 'screen',
+      template: path.join(__dirname, 'client/index.html'),
+      filename: 'screen.html',
+      chunks: ['']
+    }),
     new HtmlWebpackExternalsPlugin({
       externals: [
         {

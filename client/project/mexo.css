@@ -1,0 +1,467 @@
+/*****************************************************************************/
+/* dashboard模块 */
+.res-601 >div:first-child,.res-602 >div:first-child,.res-603 >div:first-child,.res-604 >div:first-child{
+    height: 90%;
+    background:#ffffff;
+}
+
+.dashboard .card-title {
+    display: block;
+    color: #333333;
+    font-size: 14px;
+    margin: 5px 10px;
+}
+
+.dashboard .card {
+    position: relative;
+    height: 180px;
+    border-radius: 5px;
+}
+.dashboard .card > div > a.card-bottom {
+    position: absolute;
+    right: 2px;
+}
+.dashboard .card > div > a.card-bottom:nth-child(3) {
+    bottom: 120px;
+}
+.dashboard .card >div a.card-bottom:last-child{
+    border-radius: 0px 0px 4px 4px;
+    bottom: 0px;
+}
+.dashboard .card > div > a.card-bottom:nth-child(2) {
+    bottom: 60px;
+}
+.dashboard .card a:hover{
+    text-decoration: none;
+}
+.dashboard .card span {
+    display: block;
+}
+.dashboard .card-top {
+    display: block;
+    float: left;
+    height: 180px;
+    padding: 35px 10px;
+}
+
+.dashboard .card-top div {
+    height: 70px;
+    border-right: 1px solid #e3e3e3;
+}
+
+.dashboard .card-bottom div {
+    height: 100%;
+    padding: 0 4%;
+    width: 100%;
+}
+
+.dashboard .card-top span:first-child {
+    text-align: center;
+    color: #7cabed;
+    font-size: 30px;
+}
+
+.dashboard .card-top span:last-child {
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+}
+
+.dashboard .card-bottom {
+    display: block;
+    height: 60px;
+    float:left;
+}
+
+.dashboard .card-bottom span:first-child {
+    line-height: 30px;
+    color: #999999;
+    font-size: 12px;
+    padding: 0 4%;
+    float: right;
+}
+
+.dashboard .card-bottom span:last-child {
+    line-height: 30px;
+    color: #666666;
+    font-size: 20px;
+    float:left;
+}
+.dashboard .card-wrap{
+    width: 100%;
+}
+.dashboard .card-wrap a{
+    width: 100%;
+    float: left;
+    height: 40px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.dashboard .card-wrap a:last-child{
+    border-bottom:0;
+}
+
+.dashboard .card-wrap a span:first-child{
+    text-align:center; color:#3ac2ea; font-size:16px;float:left;
+}
+.dashboard .card-wrap a span:last-child{
+    text-align:center; color:#999999; font-size:13px;float:right;
+}
+.dashboard .card-slb a{
+    display: block;
+    padding-top:40px;
+}
+.dashboard .card-slb a span:first-child{
+    font-size:30px;
+    color:#61e1c7;
+    text-align:center;
+}
+.dashboard .card-oss a span:first-child{
+    font-size:30px;
+    color:#b19cee;
+    text-align:center;
+}
+.dashboard .card-slb a span:last-child{
+    font-size:14px;
+    color:#999999;
+    text-align:center;
+}
+
+@media screen and (min-width: 1440px) {
+    .dashboard .card-wrap{
+        padding: 0 65px;
+    }
+    .dashboard .card-top {
+        width: 49%;
+    }
+    .dashboard .card-bottom {
+        width:50%;
+    }
+    .dashboard .card-bottom span:first-child {
+        min-width: 100px;
+    }
+    .dashboard .card-bottom span:last-child {
+        padding-right: 8%;
+    }
+}
+@media screen and (max-width: 1440px) {
+    .dashboard .card-wrap{
+        padding: 0 40px;
+    }
+    .dashboard .card-top {
+        width: 41%;
+    }
+    .dashboard .card-bottom {
+        width:58%;
+    }
+    .dashboard .card-bottom span:first-child {
+        min-width: 87px;
+    }
+    .dashboard .card-bottom span:last-child {
+        padding-right: 5%;
+    }
+}
+/*****************************************************************************/
+/* dashboard 资源2模块 */
+
+
+.dashboard .panel-default {
+    border-color: #ddd;
+}
+
+.dashboard .panel {
+    margin-bottom: 20px;
+    /* 模块背景 */
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    /*-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);*/
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.dashboard .center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.dashboard .pull-left {
+    float: left!important;
+}
+
+.dashboard .pull-padding >span>span {
+    margin-left:10px;
+}
+
+.dashboard .pull-right {
+    float: right!important;
+}
+.dashboard .card-watch{
+    padding-left:0px;
+    padding-right:0px;
+    width:105%;
+}
+.dashboard .panel-body{
+    height:300px;
+    padding:0px 20px;
+}
+.dashboard .panel-body .panel-bar{
+    height:75px;
+}
+.dashboard .panel-body .panel-bar:not(:last-child){
+    border-bottom:0px solid #d8d8d8;
+}
+.dashboard .panel-block{
+    height: 75px;
+    color:#333;
+}
+.dashboard .pull-padding{
+    padding-top: 19px;
+    padding-left: 18px;
+}
+.dashboard .card-watch img {
+    float:left;
+    width: 16px;
+    height: 16px;
+}
+.dashboard .pull-span-right{
+    padding: 20px 50px;
+}
+.dashboard .pull-span-right span{
+    font-size:30px;
+}
+
+/*****************************************************************************/
+/* dashboard 资源4模块 */
+
+.dashboard .warning-info {
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+.res-607 .info-tit {
+    height: 30px;
+    padding: 5px 15px;
+}
+
+.res-607 .info-tit .pull-left {
+    color: #838383;
+    font-size: 16px;
+}
+
+.res-607 .info-tit .pull-right {
+    color: #BDBDBD;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dashboard .info-body {
+    height: 250px;
+    padding-left: 0px;
+    overflow: hidden;
+}
+.dashboard .info-body >div{
+    text-align: center;vertical-align: middle;padding-top: 40px;
+}
+.dashboard .info-body >div img{
+    height: 150px;
+    width: 150px;
+}
+.dashboard .info-body >div div{
+    text-align: center;vertical-align: middle;color: #A6A6A6;
+}
+.dashboard .info-table{
+    height: 200px;
+    overflow: auto;
+}
+.res-607 *{
+    margin:0;
+    padding:0;
+}
+.res-607 table{
+    font-size: 12px;
+    font-family: "微软雅黑";
+    width: 100%;
+
+}
+.res-607 #table1 {
+    background: #F9F9F9;
+}
+.res-607 #table2 tbody tr td {
+    border-top: 1px solid #ebecee;
+}
+.res-607 #table1 thead th{
+    font-weight:500;
+    padding: 5px 0;
+    font-size:14px;
+    padding:1px 9px;
+    color:#888;
+}
+
+.res-607 #table1 thead th:first-child,.res-607 #table1 thead th:last-child {
+    width: 30%;
+}
+.res-607 #table1 thead th:nth-child(2){
+    width:25%;
+}
+.res-607 #table1 thead th:nth-child(3){
+    width:15%;
+}
+
+.res-607 #table2 tbody tr td:first-child,.res-607 #table2 tbody tr td:last-child {
+    overflow:hidden;
+    width: 30%;
+}
+.res-607 #table2 tbody tr td:nth-child(2){
+    width:25%;
+}
+.res-607 #table2 tbody tr td:nth-child(3){
+    width:15%;
+}
+
+.res-607 #table2 tbody td{
+    padding:8px;
+    height: 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+.res-607 #table2{
+    width:100%;
+    height:200px !important;
+    overflow:auto;
+    position:relative;
+}
+.text-muted {
+    color: #999 !important;
+}
+.text-danger {
+    color: #f05050 !important;
+}
+.resourceId{
+
+}
+.tip{
+    display:none;
+    position:absolute;
+    /*top:0;
+    left:78px;*/
+}
+.tip div:last-child{
+    max-width:200px;
+    padding:3px 8px;
+    color:#ffffff;
+    text-align:center;
+    text-decoration:none;
+    background-color:#222222;
+    border-radius:4px;
+    word-break:break-all;
+}
+
+.tip div:first-child{
+    position: absolute;
+    top: 35%;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-right: 7px solid #222222;
+}
+/*****************************************************************************/
+/* dashboard 资源5模块 */
+.dashboard .selects{
+    width: 100%;
+    background-color: #ffffff !important;
+    height: 30px;
+    border: 1px solid #00b4ed;;
+    border-radius: 4px;
+    margin-top:10px;
+}
+.dashboard .resource-col{
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right:14px solid #f4f4f4;
+    background-color: #fff;
+    border-radius: 4px;
+}
+.dashboard .border-none{
+    border:none;
+}
+.dashboard .text-muted {
+    color: #777;
+}
+.dashboard .resource-tit{
+    width: 70px;
+    white-space: nowrap;
+    text-align: right;
+    color: #838383;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.dashboard .resource-select{
+    width:40%;
+    position:absolute;
+    right: 3px;
+    padding-left:10px;
+    z-index: 2;
+}
+.dashboard .resource-col .resource-select:nth-child(1) .dropdownContainer {
+    z-index: 33;
+}
+.dashboard .resource-col .resource-select:nth-child(2) .dropdownContainer {
+    z-index: 32;
+}
+
+.dashboard .resource-canvas{
+    padding: 25px 0;
+    padding-top: 60px;
+    float: right;
+    width:270px;
+    position: relative;
+    z-index: 0;
+}
+.dashboard .resource-bottom{
+    text-align:center;margin-top:5px;
+    position: relative;
+}
+.dashboard .resource-bottom > span:first-child{
+    float: left;
+    position: absolute;
+    left: 0;
+}
+.dashboard .resource-bottom > span:last-child{
+    float: left;
+    position: absolute;
+    top: 25px;
+    left: 0;
+}
+
+.dashboard .resource-bottom .count{
+    color:#167DE8; font-size:18px;
+}
+
+.dashboard .panel-bar:hover,.dashboard .dropdownDefault:hover{
+    background-color: #F9F9F9;
+    cursor: pointer;
+}
+
+.dashboard .res-6081,.dashboard .res-6082,.dashboard .res-6083,.dashboard .res-6084{
+   /* margin-bottom: 100px;*/
+}
+
+@media screen and (min-width: 1440px) {
+    .dashboard .selects{
+        padding: 6px 16px;
+    }
+}
+@media screen and (max-width: 1440px) {
+    .dashboard .selects{
+        padding: 6px 10px;
+    }
+}
