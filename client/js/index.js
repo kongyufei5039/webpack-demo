@@ -1,5 +1,9 @@
 // config for 1080p
-//
+
+// 导入依赖的文件
+import '../poject/index.css';
+import '../project/jeez.css';
+
 window.GlobalConfig = {
 	MIN_REFRESH: 2,	// 最小刷新间隔: 秒
 	resourcePath: 'resource/',

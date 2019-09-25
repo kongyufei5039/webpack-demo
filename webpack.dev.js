@@ -9,7 +9,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   entry: {
     index: './src/index/index.js',
-    search: './src/search/index.js'
+    search: './src/search/index.js',
+    screen: './client/js/index.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -78,7 +79,7 @@ module.exports = {
       title: 'screen',
       template: path.join(__dirname, 'client/index.html'),
       filename: 'screen.html',
-      chunks: ['']
+      chunks: ['screen']
     }),
     new HtmlWebpackExternalsPlugin({
       externals: [
